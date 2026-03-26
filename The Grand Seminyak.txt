@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grand Seminyak</title>
+
+<style>
+html {scroll-behavior:smooth;}
+body {
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#0b0b0b;
+color:white;
+line-height:1.6;
+}
+
+/* NAV */
+nav {
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.9);
+padding:15px;
+text-align:center;
+z-index:1000;
+}
+nav a {
+color:gold;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HERO */
+header {
+height:100vh;
+background:url('https://images.unsplash.com/photo-1501117716987-c8e1ecb2101c') center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+header h1 {font-size:65px;}
+header button {
+margin-top:20px;
+padding:12px 25px;
+background:gold;
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* SECTION */
+section {
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
+h2 {
+text-align:center;
+color:gold;
+margin-bottom:40px;
+}
+
+/* GRID */
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* CARD */
+.card {
+background:#1a1a1a;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+}
+.card:hover {
+transform:translateY(-8px);
+}
+.card img {
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
+.price {color:gold;font-weight:bold;}
+
+/* FORM */
+form input, form textarea {
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:5px;
+}
+button {
+width:100%;
+padding:12px;
+background:gold;
+border:none;
+font-weight:bold;
+}
+
+/* POPUP */
+.popup {
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#1a1a1a;
+padding:30px;
+border-radius:10px;
+text-align:center;
+z-index:2000;
+}
+
+/* MAP */
+iframe {width:100%; border-radius:10px;}
+
+/* FOOTER */
+footer {
+text-align:center;
+padding:30px;
+background:black;
+}
+</style>
+
+<script>
+function bookNow(e){
+e.preventDefault();
+document.getElementById("popup").style.display="block";
+}
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+</script>
+
+</head>
+
+<body>
+
+<nav>
+<a href="#rooms">Rooms</a>
+<a href="#dining">Dining</a>
+<a href="#events">Events</a>
+<a href="#services">Services</a>
+<a href="#booking">Booking</a>
+<a href="#location">Location</a>
+</nav>
+
+<header>
+<h1>The Grand Seminyak</h1>
+<p>Luxury Redefined in Bali</p>
+<button onclick="document.getElementById('booking').scrollIntoView()">Book Now</button>
+</header>
+
+<!-- ROOMS -->
+<section id="rooms">
+<h2>Luxury Rooms</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32">
+<h3>Deluxe Ocean Room</h3>
+<p class="price">IDR 2.5M / night</p>
+<ul>
+<li>King bed, premium linen</li>
+<li>Ocean view balcony</li>
+<li>Smart TV & WiFi</li>
+<li>Mini bar & coffee machine</li>
+<li>Luxury rain shower</li>
+</ul>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1590490360182-c33d57733427">
+<h3>Executive Suite</h3>
+<p class="price">IDR 4.5M / night</p>
+<ul>
+<li>Separate living room</li>
+<li>Bathtub & shower</li>
+<li>Walk-in wardrobe</li>
+<li>Work desk</li>
+<li>Butler service</li>
+</ul>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
+<h3>Private Pool Villa</h3>
+<p class="price">IDR 8M / night</p>
+<ul>
+<li>Private infinity pool</li>
+<li>Tropical garden</li>
+<li>Outdoor bathtub</li>
+<li>In-villa dining</li>
+<li>Full privacy</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- DINING -->
+<section id="dining">
+<h2>Dining Experience</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Fine Dining</h3>
+<ul>
+<li>Wagyu Steak</li>
+<li>Lobster Thermidor</li>
+<li>Truffle Pasta</li>
+<li>Seafood Platter</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Breakfast</h3>
+<ul>
+<li>American Breakfast</li>
+<li>Smoothie Bowl</li>
+<li>Fresh Bakery</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Beach Bar</h3>
+<ul>
+<li>Cocktails</li>
+<li>Mocktails</li>
+<li>Snacks & Tapas</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+<h2>Special Events</h2>
+<div class="grid">
+<div class="card"><h3>Wedding</h3><p>Beach sunset wedding</p></div>
+<div class="card"><h3>Romantic Dinner</h3><p>Private candlelight dinner</p></div>
+<div class="card"><h3>Private Party</h3><p>Luxury villa party</p></div>
+</div>
+</section>
+
+<!-- SERVICES (PHOTO BASED) -->
+<section id="services">
+<h2>Premium Services</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<h3>24h Room Service</h3>
+<p>Luxury in-room dining anytime.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+<h3>Laundry Service</h3>
+<p>Fast and professional care.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1597007030739-6d2e62f9d1d1">
+<h3>Buggy Car</h3>
+<p>Easy transport around resort.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff">
+<h3>Tour Guide</h3>
+<p>Explore Bali with experts.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+<h3>Airport Transfer</h3>
+<p>Luxury private transport.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874">
+<h3>Spa & Wellness</h3>
+<p>Relaxing Balinese treatment.</p>
+</div>
+
+</div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+<h2>Book Your Stay</h2>
+<form onsubmit="bookNow(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<input type="date" required>
+<input type="date" required>
+<textarea placeholder="Special Request"></textarea>
+<button>Confirm Booking</button>
+</form>
+</section>
+
+<!-- MAP -->
+<section id="location">
+<h2>Location</h2>
+<iframe src="https://maps.google.com/maps?q=seminyak%20bali&t=&z=13&ie=UTF8&iwloc=&output=embed" height="300"></iframe>
+</section>
+
+<div id="popup" class="popup">
+<h3>Booking Confirmed</h3>
+<p>Thank you for choosing The Grand Seminyak</p>
+<button onclick="closePopup()">Close</button>
+</div>
+
+<footer>
+<p>Seminyak, Bali | info@thegrandseminyak.com</p>
+<p>© 2026 The Grand Seminyak</p>
+</footer>
+
+</body>
+</html>
